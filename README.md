@@ -2,7 +2,7 @@
 ## easyconvert - Crypto conversions on the fly!
 
 #### About
-Easyconvert is tool to simplify cryptocurrency conversions. 
+Easyconvert is a tool to simplify cryptocurrency conversions. 
 
 If you'd like to report a bug, suggest something you'd like to see, or just say hello, please email me. Thanks!
 
