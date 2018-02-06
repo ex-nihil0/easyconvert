@@ -1,4 +1,4 @@
-#v.1.2
+#v.1.3
 
 import requests
 import time
@@ -98,6 +98,13 @@ while True:
 
     uInput = input('\nPlease input your conversion: ') # miniparse
     uInput = uInput.replace(' to ',':')
+    if '?' in uInput:
+        specifyCap = True
+        hypotheticalCap = (uInput[uInput.find('?'):]).strip('?')
+        hypotheticalCap = int(hypotheticalCap.replace(' ',''))
+        uInput = uInput[:uInput.find('?')]
+    else:
+        specifyCap = False
     uInput = uInput.replace(' ','')
 
     pInput = parse() # pInput <- [multiplier,coin,baseCoin]
@@ -132,26 +139,28 @@ while True:
 # sift through logic and print applicable 'marketcap' string (result line 2)
     mcCompare_pct = int(round((coinCap/baseCoinCap)*100))
     mcTotalCompare_pct = int(round((coinCap/totalCap)*100))
+    printFormatCap = round(int(coinCap),0)
+    printFormatCap = ('{:,}'.format(printFormatCap))
     if coinCap<baseCoinCap:
         if mcCompare_pct >= 1:
             if mcTotalCompare_pct >= 1:
-                print("{}'s marketcap is ~{}% of {}'s marketcap (~{}% of the total marketcap)"
-                .format(coin,mcCompare_pct,baseCoin,mcTotalCompare_pct))
+                print("{}'s marketcap is ${}: \n   ~{}% of {}'s marketcap \n   ~{}% of the total marketcap"
+                .format(coin,printFormatCap,mcCompare_pct,baseCoin,mcTotalCompare_pct))
             else:
-                print("{}'s marketcap is ~{}% of {}'s marketcap (less than 1% of the total marketcap)"
-                .format(coin,mcCompare_pct,baseCoin))
+                print("{}'s marketcap is ${}: \n   ~{}% of {}'s marketcap \n   less than 1% of the total marketcap"
+                .format(coin,printFormatCap,mcCompare_pct,baseCoin))
         else:
             if mcTotalCompare_pct >= 1:
-                print("{}'s marketcap is less than 1% of {}'s marketcap (~{}% of the total marketcap)"
-                .format(coin,baseCoin,mcTotalCompare_pct))
+                print("{}'s marketcap is ${}: \n   less than 1% of {}'s marketcap \n   ~{}% of the total marketcap"
+                .format(coin,printFormatCap,baseCoin,mcTotalCompare_pct))
             else:
-                print("{}'s marketcap is less than 1% of {}'s marketcap (less than 1% of the total marketcap)"
-                .format(coin,baseCoin))
+                print("{}'s marketcap is ${}: \n   less than 1% of {}'s marketcap \n   less than 1% of the total marketcap"
+                .format(coin,printFormatCap,baseCoin))
     else:
         if mcTotalCompare_pct >= 1:
-            print("{}'s marketcap is ~{}% of the total marketcap.".format(coin,mcTotalCompare_pct))
+            print("{}'s marketcap is ${}: \n   ~{}% of the total marketcap.".format(coin,printFormatCap,mcTotalCompare_pct))
         else:
-            print("{}'s marketcap is less than 1% of the total marketcap.".format(coin))
+            print("{}'s marketcap is ${}: \n   less than 1% of the total marketcap.".format(coin,printFormatCap))
 
 # get fantasyPrice and print result line 3
     ratio = baseCoinCap/coinCap 
@@ -161,3 +170,11 @@ while True:
     fantasyPrice = fantasyCap/circulatingSupply
     fantasyPrice = round(fantasyPrice,2)
     print("If {}'s marketcap was equal to {}'s, the price of {} would be ${}".format(coin,baseCoin,coin,fantasyPrice))
+
+# print result line 4
+    if specifyCap != True:
+        continue
+    else:
+        line4FantasyPrice = hypotheticalCap/int(circulatingSupply)
+        hypotheticalCap = ('{:,}'.format(hypotheticalCap))
+        print("If {}'s marketcap was ${}, the price of {} would be ${}".format(coin,hypotheticalCap,coin,round(line4FantasyPrice,2)))
