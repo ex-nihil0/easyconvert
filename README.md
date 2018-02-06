@@ -10,7 +10,7 @@ If you'd like to report a bug, suggest something you'd like to see, or just say 
 Using easyconvert is, well, easy! When asked for input, just type your request in plain english. Don't worry about capitalization or spaces. Easyconvert will return the conversion rate in the specified currency and USD and some marketcap comparison data. Easyconvert can also return some other useful figures, so check out the additional features!   
 **Easyconvert calls several APIs, so avoid restarting the program more than 5 times in a minute.**  
 
-## - Formatting and i/o examples
+### - Formatting and i/o examples
 Here are some common examples of accepted inputs:
 
 Input: `eth to btc`  OR  `eth:btc`
@@ -59,7 +59,7 @@ XRP's marketcap is $24,509,958,422:
 If XRP's marketcap was equal to REQ's, the price of XRP would be $0.0
 ```
 
-## - Additional features 
+### - Additional features 
 Use easyconvert to see a coin's price **given a hypothetical marketcap**. 
 Just add a question mark to the end of the string, followed by a number (the hypothetical marketcap). 
 
