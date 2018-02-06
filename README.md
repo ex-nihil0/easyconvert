@@ -7,7 +7,7 @@ Easyconvert is a tool to simplify cryptocurrency conversions.
 If you'd like to report a bug, suggest something you'd like to see, or just say hello, please email me. Thanks!
 
 #### Using easyconvert
-Using easyconvert is, well, easy! When asked for input, just type your request in plain english. Don't worry about capitalization or spaces. Easyconvert will return the conversion rate in the specified currency and USD and some marketcap comparison data. Easyconvert can also return some other useful figures, so check out the additional features!   
+Using easyconvert is, well, easy! When asked for input, just type your request in plain english. Don't worry about capitalization or spaces. Easyconvert will return the conversion rate in the specified currency and USD along with some marketcap comparison data. Easyconvert can also return some other useful figures, so check out the additional features!   
 **Easyconvert calls several APIs, so avoid restarting the program more than 5 times in a minute.**  
 
 ### - Formatting and i/o examples
