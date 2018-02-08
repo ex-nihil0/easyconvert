@@ -108,9 +108,7 @@ while True:
     uInput = uInput.replace(' ','')
 
     pInput = parse() # pInput <- [multiplier,coin,baseCoin]
-    multi = pInput[0]
-    coin = pInput[1]
-    baseCoin = pInput[2]
+    multi,coin,baseCoin = pInput[0],pInput[1],pInput[2]
 
     coinPrice = price(coin, ['BTC', 'USD']) # coinPrice <- {u'USD': VALUE, u'BTC': VALUE}
     coinPrice_USD = toUSD(prices = coinPrice) # converts price to USD
@@ -158,9 +156,9 @@ while True:
                 .format(coin,printFormatCap,baseCoin))
     else:
         if mcTotalCompare_pct >= 1:
-            print("{}'s marketcap is ${}: \n   ~{}% of the total marketcap.".format(coin,printFormatCap,mcTotalCompare_pct))
+            print("{}'s marketcap is ${}: \n   ~{}% of the total marketcap".format(coin,printFormatCap,mcTotalCompare_pct))
         else:
-            print("{}'s marketcap is ${}: \n   less than 1% of the total marketcap.".format(coin,printFormatCap))
+            print("{}'s marketcap is ${}: \n   less than 1% of the total marketcap".format(coin,printFormatCap))
 
 # get fantasyPrice and print result line 3
     ratio = baseCoinCap/coinCap 
